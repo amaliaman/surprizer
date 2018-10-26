@@ -1,0 +1,29 @@
+.nav-container {
+    display: flex;
+    background-color: var(--primary);
+    font-size: 1.1rem;
+}
+
+.nav-container a,
+.nav-container span {
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    min-width: 80px;
+    text-align: center;
+}
+
+.nav-container a:hover,
+.nav-container span:hover {
+    background-color: var(--secondary-light);
+}
+
+.nav-container span {
+    cursor: pointer;
+    display: inline-block;
+}
+
+.active-link {
+    background-color: var(--secondary);
+    color: black;
+}

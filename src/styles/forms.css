@@ -1,0 +1,39 @@
+.new-event-form {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    grid-gap: 10px;
+}
+
+.guest-picker {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row-gap: 5px;
+}
+
+.guest-input {
+    display: grid;
+    grid-template-columns: 5rem 1fr;
+    grid-gap: 5px;
+}
+
+.icon-button {
+    width: 2rem;
+}
+
+.form input,
+.form select,
+.form button {
+    padding: 5px;
+}
+
+/* Mobile */
+
+@media (max-width: 576px) {
+    .new-event-form {
+        grid-template-columns: 1fr;
+    }
+    .guest-input {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}

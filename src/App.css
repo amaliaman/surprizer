@@ -1,0 +1,12 @@
+:root {
+    /* colors */
+    --primary-dark: #6d1b7b;
+    --primary: #9c27b0;
+    --primary-light: #af52bf;
+    --secondary-dark: #b28900;
+    --secondary: #ffc400;
+    --secondary-light: #ffcf33;
+}
+
+@import './styles/navBar.css';
+@import './styles/forms.css';
