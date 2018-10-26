@@ -38,6 +38,12 @@ class TransportLayer {
         const url = ajaxUtils.CHAT_ROOMS_PATH;
         return ajaxUtils.queryApi('post', url, { eventId });
     }
+
+    // Update user
+    updateUser = (userId, updateObject) => {
+        const url = `${ajaxUtils.USERS_PATH}/${userId}`;
+        return ajaxUtils.queryApi('put', url, updateObject);
+    };
 }
 
 const transportLayer = new TransportLayer();

@@ -11,11 +11,11 @@ class Header extends Component {
     render() {
         const { event, user, role } = this.props;
         return (
-            <div>
+            <small><i>
                 {event && `Current event: ${event.title}`} |
-                 {user && `Current user: ${user.name || user.email || user.phone}`} |
-                 {role && `Current role: ${role.title}`}
-            </div>
+                &nbsp;{user && `Current user: ${user.name || user.email || user.phone}`} |
+                &nbsp;{role && `Current role: ${role.title}`}
+            </i></small>
         );
     }
 }

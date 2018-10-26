@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
 import { observable, action } from 'mobx';
-// import { Redirect } from 'react-router';
 
 import GuestPicker from '../forms/guestPicker/GuestPicker';
 import CustomLoader from '../general/CustomLoader';
 
 @inject(stores => ({
     addEvent: stores.store.addEvent,
-    // redirectTo: stores.store.redirectTo,
     isLoading: stores.store.isLoading
 }))
 @observer
@@ -31,9 +29,6 @@ class NewEventForm extends Component {
     };
 
     render() {
-        // if (this.props.redirectTo) {
-        //     return <Redirect to={this.props.redirectTo} />
-        // }
         return (
             <div>
                 <h2>New Event</h2>

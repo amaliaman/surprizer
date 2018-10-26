@@ -14,12 +14,22 @@ router.get('/:userId', async (req, res) => {
     catch (err) { throw err; }
 });
 
+// Get a single user's events
 router.get('/:userId/events', async (req, res) => {
     // allow only logged in users
     try {
         const { userId } = req.params;
         const events = await eventModel.findEventsByUser(userId);
         res.json(events);
+    }
+    catch (err) { throw err; }
+});
+
+// Update user details
+router.put('/:userId', async (req, res) => {
+    try {
+        const update = await userModel.updateUser(req.params.userId, req.body);
+        res.json(update);
     }
     catch (err) { throw err; }
 });

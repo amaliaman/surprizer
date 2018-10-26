@@ -53,6 +53,12 @@ class UserModel {
         const userModel = this.User.create({ name, isRegistered, email, phone, password });
         return userModel.get();
     }
+
+    async updateUser(userId, updateObject) {
+        const user = await this.User.findById(userId);
+        const update = user.update(updateObject);
+        return update;
+    }
 }
 
 const userModel = new UserModel();

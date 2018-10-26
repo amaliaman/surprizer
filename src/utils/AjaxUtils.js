@@ -19,9 +19,9 @@ class AjaxUtils {
                 case 'post':
                     response = await axios.post(url, body);
                     break;
-                // case 'put':
-                //     response = await axios.put(url, body);
-                //     break;
+                case 'put':
+                    response = await axios.put(url, body);
+                    break;
                 default:
                     throw new Error(`Unexpected method: ${method}`);
             }

@@ -6,6 +6,8 @@ import GuestName from '../forms/guestName/GuestName';
 
 @inject(stores => ({
     parseQueryParams: stores.store.parseQueryParams,
+    eventTitle: stores.store.currentEvent ? stores.store.currentEvent.title : null,
+    roleTItle: stores.store.currentRole ? stores.store.currentRole.title : null
 }))
 @observer
 class GreetingsMgmt extends Component {
@@ -17,13 +19,11 @@ class GreetingsMgmt extends Component {
     render() {
         return (
             <div>
+                <h1>Greetings for {this.props.eventTitle}</h1>
                 <GuestName />
-                and role
-                Here are your greetings for event:
-
-                -- event
-
-      </div>
+                <div>Your are here as {this.props.roleTItle}. Here you can write greetings and upload files that will be seen on the surprize party.</div>
+                <h4>GREETINGSBOX</h4>
+            </div>
         );
     }
 }

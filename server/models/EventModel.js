@@ -100,11 +100,11 @@ class EventModel {
         return event;
     }
 
-    async updateEvent(eventId, updateObject) {
-        const event = await this.Event.findById(eventId);
-        const update = event.update(updateObject);
-        return update;
-    }
+    // async updateEvent(eventId, updateObject) {
+    //     const event = await this.Event.findById(eventId);
+    //     const update = event.update(updateObject);
+    //     return update;
+    // }
 
     async findUserRoleByEvent(eventId, userId) {
         const row = await this.EventsUsers.findOne({ where: { eventId, userId } });

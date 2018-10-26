@@ -127,6 +127,13 @@ class Store {
         catch (err) { throw err; }
     };
 
+    @action updateUser = async updateObject => {
+        const user = await transportLayer.updateUser(this.currentUser.id, updateObject);
+        if (user) {
+            this.currentUser = user;
+        }
+    };
+
     @action logout = () => {
         // TODO: logout user if he's signed-in
         this.currentUser = null;

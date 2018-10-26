@@ -8,7 +8,7 @@ if (process.env.NODE_ENV !== 'production') {
 	const cors = require('cors');
 	app.use(cors());
 }
-console.log(process.env)
+
 const SERVER_PORT = process.env.PORT || 5000;
 
 // APIs
