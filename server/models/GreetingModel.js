@@ -61,6 +61,11 @@ class GreetingModel {
         const del = greeting.destroy();
         return del;
     }
+    
+    async createGreeting (greetingObject){
+        const greeting = await this.Greeting.create(greetingObject);
+        return greeting.get();
+    }
 
     getTypes() {
         return this.Type.findAll();

@@ -86,7 +86,7 @@ class EventModel {
                                 <br />
                                 You're invited to <b>${event.title}</b> on ${date}.
                                 <br />
-                                You can upload greetings <a href="https://www.surprizer.app/events/${event.id}/greetings/${u.id}">here</a>.
+                                You can upload greetings <a href="https://www.surprizer.app/events/${event.id}/${u.id}/greetings">here</a>.
                                 <br />
                                 See you there!
                             </p>`,

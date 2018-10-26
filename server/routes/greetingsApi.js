@@ -13,6 +13,15 @@ router.get('/types', async (req, res) => {
     catch (err) { throw err; }
 });
 
+// Create greeting
+router.post('/', async (req, res) => {
+    try {
+        const grreting = await greetingModel.createGreeting(req.body);
+        res.json(grreting);
+    }
+    catch (err) { throw err; }
+});
+
 // Update greeting
 router.put('/:greetingId', async (req, res) => {
     try {

@@ -26,6 +26,7 @@ class Store {
     // UI related
     @observable isLoginModal = false;
     @observable isNewEventModal = false;
+    @observable isAddGreetingModal = false;
     @observable isLoading = false;
     @observable redirectTo = null;
 
@@ -143,10 +144,27 @@ class Store {
     };
 
     @action updateUser = async updateObject => {
-        const user = await transportLayer.updateUser(this.currentUser.id, updateObject);
-        if (user) {
-            this.currentUser = user;
+        try {
+            const user = await transportLayer.updateUser(this.currentUser.id, updateObject);
+            if (user) {
+                this.currentUser = user;
+            }
         }
+        catch (err) { throw err; }
+    };
+
+    @action createGreeting = async (text, isPrivate, typeId) => {
+        try {
+            this.isLoading = true;
+            const userId = this.currentUser.id;
+            const eventId = this.currentEvent.id;
+            const greeting = await transportLayer.createGreeting({ userId, eventId, text, isPrivate, typeId });
+            this.toggleAddGreetingModal();
+            this.isLoading = false;
+            this.currentGreetings.push(greeting);
+            console.log(this.currentGreetings)
+        }
+        catch (err) { throw err; }
     };
 
     @action updateGreeting = async (greetingId, updateObject) => {
@@ -199,8 +217,13 @@ class Store {
     @action toggleLoginModal = () => {
         this.isLoginModal = !this.isLoginModal;
     };
+
     @action toggleNewEventModal = () => {
         this.isNewEventModal = !this.isNewEventModal;
+    };
+
+    @action toggleAddGreetingModal = () => {
+        this.isAddGreetingModal = !this.isAddGreetingModal;
     };
 
     @action resetRedirectTo = () => {

@@ -9,7 +9,7 @@ class NavBar extends Component {
             { title: 'Home', to: '/' },
             { title: 'My Events', to: '/events' },
             { title: 'Party', to: '/events/1/1/party' },
-            { title: 'Greets', to: '/events/1/greetings/1' }
+            { title: 'Greets', to: '/events/1/1/greetings' }
         ];
     }
 

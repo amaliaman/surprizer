@@ -65,7 +65,7 @@ class Greeting extends Component {
 
                 </div>
                 <div className='right'>
-                    <div>{greeting.user.name}</div>
+                    <div>{greeting.user && greeting.user.name}</div>
                 </div>
             </div>
         );

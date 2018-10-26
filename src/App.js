@@ -30,18 +30,18 @@ class App extends Component {
                     <Route path="/" exact render={() => <Home />} />
 
                     {/* TODO: ===================== if response with wrong params - redirect to 401 page */}
-                    {/* Live party page, visible to everyone (content security trimmed) */}
-                    <Route path="/events/:eventId/:userId/party" exact render={({ match }) => (
-                        <EventParty eventId={match.params.eventId} userId={match.params.userId} />
-                    )} />
-
                     {/* Event details page, visible to organizer */}
                     <Route path="/events/:eventId/:userId" exact render={({ match }) => (
                         <EventDetails eventId={match.params.eventId} userId={match.params.userId} />
                     )} />
 
+                    {/* Live party page, visible to everyone (content security trimmed) */}
+                    <Route path="/events/:eventId/:userId/party" exact render={({ match }) => (
+                        <EventParty eventId={match.params.eventId} userId={match.params.userId} />
+                    )} />
+
                     {/* Upload greetins page, visible to guests */}
-                    <Route path="/events/:eventId/greetings/:userId" exact render={({ match }) => (
+                    <Route path="/events/:eventId/:userId/greetings" exact render={({ match }) => (
                         <GreetingsMgmt eventId={match.params.eventId} userId={match.params.userId} />
                     )} />
 

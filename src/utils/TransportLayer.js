@@ -50,6 +50,12 @@ class TransportLayer {
         const url = `${ajaxUtils.GREETING_PATH}/${greetingId}`;
         return ajaxUtils.queryApi('put', url, updateObject);
     };
+
+    // Create greeting
+    createGreeting = (greetingObject) => {
+        const url = ajaxUtils.GREETING_PATH;
+        return ajaxUtils.queryApi('post', url, greetingObject);
+    };
     
     // Delete greeting
     deleteGreeting = greetingId => {
