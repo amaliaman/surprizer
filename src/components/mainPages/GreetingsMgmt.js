@@ -3,6 +3,7 @@ import { action } from 'mobx';
 import { observer, inject } from 'mobx-react';
 
 import GuestName from '../forms/guestName/GuestName';
+import GreetingsBox from '../greetings/GreetingsBox';
 
 @inject(stores => ({
     parseQueryParams: stores.store.parseQueryParams,
@@ -22,7 +23,7 @@ class GreetingsMgmt extends Component {
                 <h1>Greetings for {this.props.eventTitle}</h1>
                 <GuestName />
                 <div>Your are here as {this.props.roleTItle}. Here you can write greetings and upload files that will be seen on the surprize party.</div>
-                <h4>GREETINGSBOX</h4>
+                <GreetingsBox />
             </div>
         );
     }

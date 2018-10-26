@@ -3,6 +3,8 @@ import axios from 'axios';
 class AjaxUtils {
     constructor() {
         this.EVENTS_PATH = '/events';
+        this.GREETING_PATH = '/greetings';
+        this.GREETING_TYPES_PATH = `${this.GREETING_PATH}/types`;
         this.USERS_PATH = '/users';
         this.CHAT_PATH = '/chat';
         this.CHAT_ROOMS_PATH = `${this.CHAT_PATH}/rooms`;
@@ -21,6 +23,9 @@ class AjaxUtils {
                     break;
                 case 'put':
                     response = await axios.put(url, body);
+                    break;
+                case 'delete':
+                    response = await axios.delete(url);
                     break;
                 default:
                     throw new Error(`Unexpected method: ${method}`);

@@ -14,6 +14,7 @@ const SERVER_PORT = process.env.PORT || 5000;
 // APIs
 const eventsApi = require('./server/routes/eventsApi');
 const usersApi = require('./server/routes/usersApi');
+const greetingsApi = require('./server/routes/greetingsApi');
 const chatApi = require('./server/routes/chatApi');
 
 // Body parser
@@ -23,6 +24,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // Routes
 app.use('/events', eventsApi);
 app.use('/users', usersApi);
+app.use('/greetings', greetingsApi);
 app.use('/chat', chatApi);
 
 // Error handling

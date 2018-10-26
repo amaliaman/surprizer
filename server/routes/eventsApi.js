@@ -5,7 +5,7 @@ const eventModel = require('../models/EventModel');
 const greetingModel = require('../models/GreetingModel');
 
 // Get event details (per user permissions)
-router.get('/:eventId/:userId', async (req, res) => {
+router.get('/:eventId/:userId', async (req, res) => { 
     try {
         // TODO: handle fake eventId & userId
         // security trimmed
@@ -29,6 +29,24 @@ router.post('/',
         }
         catch (err) { throw err; }
     });
+
+// // Get available greeting types
+// router.get('/greetings/types', async (req, res) => {
+//     try {
+//         const types = await greetingModel.getTypes();
+//         res.json(types);
+//     }
+//     catch (err) { throw err; }
+// });
+
+// // Update greeting
+// router.put('/greetings/:greetingId', async (req, res) => {
+//     try {
+//         const update = await greetingModel.updateGreeting(req.params.greetingId, req.body);
+//         res.json(update);
+//     }
+//     catch (err) { throw err; }
+// });
 
 // Update event details
 // router.put('/:eventId', async (req, res) => {

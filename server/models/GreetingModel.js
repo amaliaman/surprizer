@@ -49,6 +49,22 @@ class GreetingModel {
         const greetings = this.Greeting.findAll({ where: { eventId: eventId }, include: [userModel.User] });
         return greetings.map(g => g.get());
     };
+
+    async updateGreeting(greetingId, updateObject) {
+        const greeting = await this.Greeting.findById(greetingId);
+        const update = greeting.update(updateObject);
+        return update;
+    }
+    
+    async deleteGreeting (greetingId){
+        const greeting = await this.Greeting.findById(greetingId);
+        const del = greeting.destroy();
+        return del;
+    }
+
+    getTypes() {
+        return this.Type.findAll();
+    }
 }
 
 const greetingModel = new GreetingModel();

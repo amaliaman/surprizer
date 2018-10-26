@@ -37,11 +37,11 @@ const addRoles = async () => {
 const addTypes = async () => {
     try {
         await greetingModel.Type.bulkCreate([
-            { type: 'inline' },
-            { type: 'image' },
-            { type: 'audio' },
-            { type: 'video' },
-            { type: 'file' }
+            { type: 'Text' },
+            { type: 'Image' },
+            { type: 'Audio' },
+            { type: 'Video' },
+            { type: 'Document' }
         ]);
     }
     catch (error) { throw error; }

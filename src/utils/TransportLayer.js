@@ -9,12 +9,6 @@ class TransportLayer {
         return ajaxUtils.queryApi('get', url);
     };
 
-    // // Update event details
-    // updateEvent = (eventId, updateObject) => {
-    //     const url = `${ajaxUtils.CHAT_PATH}/${eventId}`;
-    //     return ajaxUtils.queryApi('put', url, updateObject);
-    // };
-
     // Get event with all greetings (trimmed by user permissions)
     getUserById = userId => {
         const url = `${ajaxUtils.USERS_PATH}/${userId}`;
@@ -43,6 +37,24 @@ class TransportLayer {
     updateUser = (userId, updateObject) => {
         const url = `${ajaxUtils.USERS_PATH}/${userId}`;
         return ajaxUtils.queryApi('put', url, updateObject);
+    };
+
+    // Get greeting types
+    getGreetingTypes = () => {
+        const url = `${ajaxUtils.GREETING_TYPES_PATH}`;
+        return ajaxUtils.queryApi('get', url);
+    }
+
+    // Update greeting
+    updateGreeting = (greetingId, updateObject) => {
+        const url = `${ajaxUtils.GREETING_PATH}/${greetingId}`;
+        return ajaxUtils.queryApi('put', url, updateObject);
+    };
+    
+    // Delete greeting
+    deleteGreeting = greetingId => {
+        const url = `${ajaxUtils.GREETING_PATH}/${greetingId}`;
+        return ajaxUtils.queryApi('delete', url);
     };
 }
 

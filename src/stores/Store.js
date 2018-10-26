@@ -13,6 +13,8 @@ class Store {
     @observable currentRole = null;
     @observable currentGreetings = [];
     @observable userEvents = [];
+    @observable greetingTypes = [];
+    @observable currentGreetingType = 1;
 
     @observable isSignedIn = false;
 
@@ -46,9 +48,6 @@ class Store {
 
     @action initialize = async () => {
         this.getUserFromStorage();
-        // await this.getUser(); // hard-coded login
-        // await this.getEventsByUser(); // TODO: get only in home page
-        // this.getEventFromStorage();
     };
 
     @action parseQueryParams = paramsObject => {
@@ -69,11 +68,6 @@ class Store {
         this.isSignedIn = true;
     };
 
-    // @action getEventFromStorage = () => {
-    //     this.currentEvent = JSON.parse(localStorage.getItem(LS_EVENT_KEY))
-    //         || this.currentEvent;
-    // };
-
     @action getUserFromStorage = () => {
         this.currentUser = JSON.parse(localStorage.getItem(LS_USER_KEY))
             || this.currentUser;
@@ -90,6 +84,27 @@ class Store {
             this.isLoading = false;
         }
         catch (err) { throw err; }
+    }
+
+    @action getGreetingTypes = async () => {
+        // TODO: only if something changed on the server
+        this.greetingTypes = await transportLayer.getGreetingTypes();
+    }
+
+    @computed get greetingTabsTitles() {
+        return this.greetingTypes
+            .map(t =>
+                ({
+                    id: t.id,
+                    title: t.type,
+                    count: this.currentGreetings
+                        .filter(g => g.typeId === t.id)
+                        .length
+                }))
+    }
+
+    @action setGreetingType = typeId => {
+        this.currentGreetingType = typeId;
     }
 
     @action getUser = async userId => {
@@ -134,6 +149,22 @@ class Store {
         }
     };
 
+    @action updateGreeting = async (greetingId, updateObject) => {
+        const greeting = await transportLayer.updateGreeting(greetingId, updateObject);
+        if (greeting) {
+            let currentGreeting = this.currentGreetings.find(g => g.id === greetingId);
+            Object.keys(updateObject).forEach(k => {
+                currentGreeting[k] = updateObject[k];
+            });
+        }
+    };
+
+    @action deleteGreeting = async greetingId => {
+        await transportLayer.deleteGreeting(greetingId);
+        let currentIndex = this.currentGreetings.findIndex(g => g.id === greetingId);
+        this.currentGreetings.splice(currentIndex, 1);
+    };
+
     @action logout = () => {
         // TODO: logout user if he's signed-in
         this.currentUser = null;
@@ -151,11 +182,6 @@ class Store {
             }
         }
     );
-
-    // updateEventInStorage = reaction(
-    //     () => ({ ...this.currentEvent }),
-    //     event => { localStorage.setItem(LS_EVENT_KEY, JSON.stringify(event)) }
-    // );
 
     updateUserInStorage = reaction(
         () => ({ ...this.currentUser }),

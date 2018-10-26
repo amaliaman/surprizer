@@ -38,7 +38,6 @@ router.post('/rooms', async (req, res) => {
             name: `event_${eventId}`
         })
         .then(async room => {
-            // save in DB - chat room id
             await eventModel.updateEvent(eventId, { chatRoomId: room.id });
             res.json(room.id);
         })
