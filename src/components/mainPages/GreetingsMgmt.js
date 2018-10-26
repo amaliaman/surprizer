@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { action } from 'mobx';
 import { observer, inject } from 'mobx-react';
 
-import GuestName from '../guestName/GuestName';
+import GuestName from '../forms/guestName/GuestName';
 
 @inject(stores => ({
     parseQueryParams: stores.store.parseQueryParams,

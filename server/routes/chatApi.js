@@ -3,10 +3,9 @@ const router = express.Router();
 const Chatkit = require('pusher-chatkit-server');
 
 const eventModel = require('../models/EventModel');
-
 const chatkit = new Chatkit.default({
     instanceLocator: process.env.CHATKIT_INSTANCE_LOCATOR,
-    key: process.env.CHATKIT_API_KEY,
+    key: process.env.CHATKIT_KEY,
 });
 
 router.post('/users', (req, res) => {
