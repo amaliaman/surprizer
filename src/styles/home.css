@@ -1,0 +1,26 @@
+.hero {
+    font-size: 3rem;
+    color: blueviolet;
+}
+
+.description {
+    font-size: 0.9rem;
+}
+
+.new-event-btn {
+    padding: 10px 20px;
+    margin: 10px 0;
+    border: none;
+    background-color: blueviolet;
+    color: white;
+    border-radius: 20px;
+    box-shadow: 3px 6px 3px -3px #999999;
+}
+
+.loader-container {
+    margin: 10px 0;
+}
+
+h3 {
+    color: blueviolet;
+}

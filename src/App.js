@@ -29,6 +29,9 @@ class App extends Component {
                     {/* Home page */}
                     <Route path="/" exact render={() => <Home />} />
 
+                    {/* About page */}
+                    <Route path="/about" exact render={() => <div>About!</div>} />
+
                     {/* TODO: ===================== if response with wrong params - redirect to 401 page */}
                     {/* Event details page, visible to organizer */}
                     <Route path="/events/:eventId/:userId" exact render={({ match }) => (

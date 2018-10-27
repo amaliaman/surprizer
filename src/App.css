@@ -1,13 +1,64 @@
 :root {
     /* colors */
+    --page-bg: #f9fafe;
+    --text-color: #3a416f;
     --primary-dark: #6d1b7b;
     --primary: #9c27b0;
     --primary-light: #af52bf;
     --secondary-dark: #b28900;
     --secondary: #ffc400;
     --secondary-light: #ffcf33;
+    /* dimensions */
+    --min-container-width: 100%;
+    --mid-container-width: 75%;
+    --max-container-width: 75%;
+    /* fonts */
+    --body-font: 'Rubik', sans-serif;
+}
+
+@font-face {
+    font-family: 'Rubik';
+    src: local('Rubik'), url('./fonts/Rubik/Rubik-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Rubik';
+    src: local('Rubik'), url('./fonts/Rubik/Rubik-Bold.ttf') format('truetype');
+    font-weight: bold;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: var(--body-font);
+    background-color: var(--page-bg);
+}
+
+.outer-wrapper {
+    width: 100%;
+}
+
+.container {
+    width: var(--mid-container-width);
 }
 
 @import './styles/navBar.css';
 @import './styles/forms.css';
 @import './styles/greetings.css';
+@import './styles/home.css';
+/* Mobile */
+
+@media (max-width: 576px) {
+    .container {
+        width: var(--min-container-width);
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+
+@media (min-width: 992px) {
+    .container {
+        width: var(--max-container-width);
+    }
+}

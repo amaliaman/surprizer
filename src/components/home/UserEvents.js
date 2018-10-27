@@ -12,7 +12,7 @@ class UserEvents extends Component {
     render() {
         return (
             <div>
-                <h3>My Events</h3>
+                <h3>{this.props.title}</h3>
                 {this.props.user && this.props.userEvents.map(e => <p key={e.id}>
                     {e.title}, {moment(e.date).format('L HH:mm')}
                     <Link to={`/events/${e.id}/${this.props.user.id}`}>Go</Link>

@@ -14,12 +14,18 @@ import UserEvents from './UserEvents';
 class Home extends Component {
   render() {
     return (
-      <div>
-        {this.props.isSignedIn && <button type='button' onClick={this.props.toggleModal}>New Event</button>}
-        <NewEventModal />
-        <CustomLoader isLoading={this.props.isLoading}>
-          <UserEvents />
-        </CustomLoader>
+      <div className='outer-wrapper'>
+        <div className='container'>
+          <div className='hero'>Surprize!</div>
+          <div className='description'><b>Surprizer</b> lets you organize virtual surprise parties.</div>
+
+          {this.props.isSignedIn && <button class='new-event-btn' type='button' onClick={this.props.toggleModal}>New Event</button>}
+          <NewEventModal />
+
+          <CustomLoader isLoading={this.props.isLoading}>
+            <UserEvents title='Upcoming Events' />
+          </CustomLoader>
+        </div>
       </div>
     );
   }

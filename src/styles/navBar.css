@@ -1,21 +1,27 @@
+.outer-wrapper {
+    display: flex;
+    justify-content: center;
+    width: var(--mid-container-width);
+}
+
 .nav-container {
     display: flex;
-    background-color: var(--primary);
-    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+.login-btn {
+    margin-left: auto;
 }
 
 .nav-container a,
 .nav-container span {
-    color: white;
-    padding: 10px;
+    padding: 15px 15px 15px 0;
     text-decoration: none;
-    min-width: 80px;
-    text-align: center;
 }
 
 .nav-container a:hover,
 .nav-container span:hover {
-    background-color: var(--secondary-light);
+    text-decoration: underline;
 }
 
 .nav-container span {
@@ -24,6 +30,13 @@
 }
 
 .active-link {
-    background-color: var(--secondary);
-    color: black;
+    color: red;
 }
+
+/* Mobile */
+
+@media (max-width: 576px) {}
+
+/* Large devices (desktops, 992px and up) */
+
+@media (min-width: 992px) {}

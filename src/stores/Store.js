@@ -66,7 +66,6 @@ class Store {
     @action dummyLogin = async () => {
         await this.getUser(1);
         this.toggleLoginModal();
-        this.isSignedIn = true;
     };
 
     @action getUserFromStorage = () => {
@@ -186,7 +185,6 @@ class Store {
     @action logout = () => {
         // TODO: logout user if he's signed-in
         this.currentUser = null;
-        this.isSignedIn = false;
         this.queryParams.eventId = null;
         this.queryParams.userId = null;
         this.redirectTo = '/';
@@ -206,9 +204,11 @@ class Store {
         () => {
             if (this.currentUser) {
                 localStorage.setItem(LS_USER_KEY, JSON.stringify(this.currentUser))
+                this.isSignedIn = true;
             }
             else {
                 localStorage.removeItem(LS_USER_KEY);
+                this.isSignedIn = false;
             }
         }
     );

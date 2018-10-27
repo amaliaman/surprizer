@@ -4,17 +4,18 @@ import LoginButton from './LoginButton';
 
 @inject(stores => ({
     currentUserExists: stores.store.currentUserExists,
+    username: stores.store.currentUser ? stores.store.currentUser.name : '',
     logout: stores.store.logout
 }))
 @observer
 class LoginControl extends Component {
     render() {
-        const { currentUserExists, logout } = this.props;
+        const { currentUserExists, logout, username } = this.props;
 
         return (
             <div className='login-btn'>
                 {currentUserExists ?
-                    <span onClick={logout}>Logout</span>
+                    <span onClick={logout}>{`Hi ${username}, Logout`}</span>
                     :
                     <LoginButton />
                 }

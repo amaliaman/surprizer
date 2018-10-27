@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const moment = require('moment');
 const app = express();
 
-if (process.env.NODE_ENV !== 'production') {
+if (app.get('env') === 'development') {
 	require('dotenv').load();
 	const cors = require('cors');
 	app.use(cors());

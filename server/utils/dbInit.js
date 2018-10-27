@@ -1,6 +1,7 @@
 const eventModel = require('../models/EventModel');
 const greetingModel = require('../models/GreetingModel');
 const userModel = require('../models/UserModel');
+const cronModel = require('../models/CronModel');
 
 const initTables = async (populate) => {
     try {
@@ -12,7 +13,7 @@ const initTables = async (populate) => {
 
         await greetingModel.Type.sync({ force: true });
         await greetingModel.Greeting.sync({ force: true });
-
+        
         addTypes();
         addRoles();
 

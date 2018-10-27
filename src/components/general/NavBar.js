@@ -6,18 +6,19 @@ class NavBar extends Component {
     constructor() {
         super();
         this.links = [
-            { title: 'Home', to: '/' },
+            { title: 'Surprizer', to: '/' },
             { title: 'My Events', to: '/events' },
-            { title: 'Party', to: '/events/1/1/party' },
-            { title: 'Greets', to: '/events/1/1/greetings' }
+            { title: 'About', to: '/about' }
         ];
     }
 
     render() {
         return (
-            <div className='nav-container'>
-                {this.links.map((l, i) => <NavLink key={i} to={l.to} activeClassName='active-link' exact>{l.title}</NavLink>)}
-                <LoginControl />
+            <div className='outer-wrapper'>
+                <div className='container nav-container'>
+                    {this.links.map((l, i) => <NavLink key={i} to={l.to} activeClassName='active-link' exact>{l.title}</NavLink>)}
+                    <LoginControl />
+                </div>
             </div>
         );
     }

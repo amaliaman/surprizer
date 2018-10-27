@@ -1,18 +1,12 @@
 const CronJob = require('cron').CronJob;
 
 class Croner {
-
+    createCronJob(date, onTick) {
+        console.log('===== This job should be run at ', date.toUTCString())
+        new CronJob(date, onTick, null, true);
+        // TODO: persist in DB
+    }
 }
-const s = new Date();
-s.setSeconds(s.getSeconds() + 60);
-
-const a = new CronJob(s,
-    () => {
-        console.log('=========== cron at ' + s.toLocaleString());
-    },
-    null,
-    true
-);
 
 const croner = new Croner();
 module.exports = croner;
