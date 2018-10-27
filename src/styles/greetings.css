@@ -33,14 +33,8 @@
 .greeting-wrapper {
     border: 1px solid green;
     display: grid;
-    grid-template-columns: 400px 1fr;
+    grid-template-columns: max-content 1fr;
     grid-gap: 10px;
-}
-
-.greeting-wrapper div {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-gap: 5px;
 }
 
 .greeting-wrapper .buttons {
@@ -51,6 +45,11 @@
     cursor: pointer;
     color: var(--secondary-dark);
     margin: 5px;
+}
+
+.greeting-wrapper .readonly * {
+    padding: 0;
+    margin: 0;
 }
 
 /* Mobile */

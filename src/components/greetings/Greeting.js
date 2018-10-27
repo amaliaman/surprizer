@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
 import { observable, action } from 'mobx';
+import ReactQuill from 'react-quill';
+import '../../../node_modules/react-quill/dist/quill.snow.css';
+import Parser from 'html-react-parser';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faSave, faTrash, faTimes } from '@fortawesome/free-solid-svg-icons';
 
@@ -21,6 +24,10 @@ class Greeting extends Component {
         this[e.target.name] = e.target.value;
     };
 
+    @action handleChangeQuill = e => {
+        this.text = e;
+    };
+
     @action handleCancel = () => {
         this.toggleEdit();
         this.text = this.props.greeting.text;
@@ -39,6 +46,19 @@ class Greeting extends Component {
         this.isEditMode = !this.isEditMode;
     };
 
+    quillModules = {
+        toolbar: [
+            [{ 'font': [] }],
+            ['bold', 'italic', 'underline', 'strike'],
+            ['blockquote', 'code-block'],
+            [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+            [{ 'direction': 'rtl' }],
+            [{ 'color': [] }, { 'background': [] }],
+            [{ 'align': [] }],
+            ['clean']
+        ],
+    }
+
     render() {
         const { greeting } = this.props;
 
@@ -47,15 +67,20 @@ class Greeting extends Component {
                 <div className='left'>
                     {this.isEditMode ?
                         <div>
-                            <textarea value={this.text} name='text' onChange={this.handleChange} rows={4} />
+                            <ReactQuill
+                                theme='snow'
+                                value={this.text}
+                                onChange={this.handleChangeQuill}
+                                modules={this.quillModules}
+                            />
                             <div className='buttons'>
                                 <span onClick={this.handleSaveText} title='Save'><FontAwesomeIcon icon={faSave} /></span>
                                 <span onClick={this.handleCancel} title='Cancel'><FontAwesomeIcon icon={faTimes} /></span>
                             </div>
                         </div>
                         :
-                        <div>
-                            {greeting.text}
+                        <div className='readonly'>
+                            {Parser(greeting.text)}
                             <div className='buttons'>
                                 <span onClick={this.toggleEdit} title='Edit'><FontAwesomeIcon icon={faEdit} /></span>
                                 <span onClick={this.handleDelete} title='Delete'><FontAwesomeIcon icon={faTrash} /></span>
