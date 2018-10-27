@@ -4,7 +4,7 @@ import LoginButton from './LoginButton';
 
 @inject(stores => ({
     currentUserExists: stores.store.currentUserExists,
-    username: stores.store.currentUser ? stores.store.currentUser.name : '',
+    username: stores.store.currentUser ? (stores.store.currentUser.name || stores.store.currentUser.email || stores.store.currentUser.phone) : '',
     logout: stores.store.logout
 }))
 @observer

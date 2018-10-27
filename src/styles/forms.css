@@ -21,11 +21,11 @@
     width: 2rem;
 }
 
-.form input,
-.form select,
-.form button {
+input,
+.form select{
     padding: 5px;
 }
+
 
 /* Mobile */
 

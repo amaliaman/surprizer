@@ -147,7 +147,8 @@ class EventModel {
 
     async findEventsByUser(userId) {
         const user = await userModel.User.findById(userId);
-        const events = await user.getEvents();
+        const events = await user.getEvents({ order: ['date'] });
+        // TODO: return role
         return events;
     }
 }

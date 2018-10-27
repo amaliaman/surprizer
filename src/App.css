@@ -13,17 +13,17 @@
     --mid-container-width: 75%;
     --max-container-width: 75%;
     /* fonts */
-    --body-font: 'Rubik', sans-serif;
+    --body-font: 'Open Sans', sans-serif;
 }
 
 @font-face {
-    font-family: 'Rubik';
-    src: local('Rubik'), url('./fonts/Rubik/Rubik-Regular.ttf') format('truetype');
+    font-family: 'Open Sans';
+    src: local('OpenSans'), url('./fonts/Open_Sans/OpenSans-Regular.ttf') format('truetype');
 }
 
 @font-face {
-    font-family: 'Rubik';
-    src: local('Rubik'), url('./fonts/Rubik/Rubik-Bold.ttf') format('truetype');
+    font-family: 'Open Sans';
+    src: local('OpenSans'), url('./fonts/Open_Sans/OpenSans-Bold.ttf') format('truetype');
     font-weight: bold;
 }
 
@@ -33,6 +33,10 @@ html {
     padding: 0;
     font-family: var(--body-font);
     background-color: var(--page-bg);
+}
+
+button {
+    font-family: var(--body-font);
 }
 
 .outer-wrapper {

@@ -60,7 +60,7 @@ class NewEventForm extends Component {
                     <GuestPicker roleId={3} setUsersFromPicker={this.setUsersFromPicker} />
 
                     <CustomLoader isLoading={this.props.isLoading} height={40}>
-                        <button type='submit'>Save</button>
+                        <button className='btn' type='submit'>Save</button>
                     </CustomLoader>
                 </form>
             </div>

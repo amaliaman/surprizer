@@ -11,7 +11,9 @@ class LoginForm extends Component {
             <div>
                 <input type='text' placeholder='Username' />
                 <br />
-                <button type='button' onClick={this.props.dummyLogin}>Login</button> <small><i>hard-coded login user 'Ami' for now</i></small>
+                <button className='btn' type='button' onClick={this.props.dummyLogin}>Login</button>
+                <br />
+                <small><i>hard-coded login user 'Ami' for now</i></small>
             </div>
         );
     }

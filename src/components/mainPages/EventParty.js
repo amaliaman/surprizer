@@ -18,28 +18,35 @@ import ChatContainer from '../chat/ChatContainer';
 class EventParty extends Component {
 
     @action componentDidMount = () => {
-        const { /* getEventFull, */ userId, eventId, parseQueryParams } = this.props;
-        // getUser(userId);
-        parseQueryParams({eventId, userId});
-        // getEventFull(eventId, userId);
+        const { userId, eventId, parseQueryParams } = this.props;
+        parseQueryParams({ eventId, userId });
     };
 
     render() {
         const { event } = this.props;
         return (
-            <CustomLoader isLoading={this.props.isLoading}>
-                {/* replace with automatic creation of room */}
-                {event && !event.chatRoomId && <div>
-                    <button type='button' onClick={this.props.createChatRoom}>Create chat</button>
-                    <small>will be auto created</small></div>}
+            <div className='outer-wrapper party'>
+                <div className='container'>
+                    <div className='hero'>
+                        <div>
+                            <div className='title'>Party on!</div>
+                            <div className='description'>This is the real party! Chat with people and mingle.</div>
 
-                {event && event.chatRoomId && < ChatContainer />}
+                        </div></div>
+                    <CustomLoader isLoading={this.props.isLoading}>
+                        {/* replace with automatic creation of room */}
+                        {event && !event.chatRoomId && <div>
+                            <button type='button' onClick={this.props.createChatRoom}>Create chat</button>
+                            <small>will be auto created</small></div>}
 
-                {event && <h1>Welcome to {event.title}</h1>}
-                {this.props.user && <h2>{this.props.user.name}</h2>}
+                        {event && <h3>Welcome to {event.title}</h3>}
+                        {event && event.chatRoomId && <ChatContainer />}
+                        {this.props.user && <h2>{this.props.user.name}</h2>}
 
-                <GreetingsBox />
-            </CustomLoader>
+                        <GreetingsBox />
+                    </CustomLoader>
+                </div>
+            </div>
         );
     }
 }

@@ -1,5 +1,6 @@
 import { observable, action, reaction, computed } from 'mobx';
 import axios from 'axios';
+import moment from 'moment';
 
 import transportLayer from '../utils/TransportLayer';
 import ajaxUtils from '../utils/AjaxUtils';
@@ -103,6 +104,20 @@ class Store {
                 }))
     }
 
+    @computed get futureUserEvents() {
+        return this.userEvents.filter(e => new Date(e.date) > new Date());
+    }
+
+    @computed get currentParties() {
+        return this.userEvents
+            .filter(e => {
+                const now = moment();
+                const eventDate = moment(e.date);
+                const end = moment(e.date).add(4, 'h');
+                return now.isBetween(eventDate, end);
+            });
+    }
+
     @action setGreetingType = typeId => {
         this.currentGreetingType = typeId;
     }
@@ -201,14 +216,16 @@ class Store {
 
     updateUserInStorage = reaction(
         () => ({ ...this.currentUser }),
-        () => {
+        async () => {
             if (this.currentUser) {
                 localStorage.setItem(LS_USER_KEY, JSON.stringify(this.currentUser))
                 this.isSignedIn = true;
+                await this.getEventsByUser();
             }
             else {
                 localStorage.removeItem(LS_USER_KEY);
                 this.isSignedIn = false;
+                this.userEvents = [];
             }
         }
     );

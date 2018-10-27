@@ -8,10 +8,12 @@ import Home from './components/home/Home';
 import EventParty from './components/mainPages/EventParty';
 import EventDetails from './components/mainPages/EventDetails';
 import GreetingsMgmt from './components/mainPages/GreetingsMgmt';
-import Header from './components/general/Header';
+// import Header from './components/general/Header';
 import RedirectIntercept from './components/general/RedirectIntercept';
 
 import { inject, observer } from 'mobx-react';
+import MyEvents from './components/mainPages/MyEvents';
+import About from './components/mainPages/About';
 
 @inject(stores => ({
     redirectTo: stores.store.redirectTo
@@ -24,13 +26,15 @@ class App extends Component {
                 <div>
                     {this.props.redirectTo && <RedirectIntercept />}
                     <NavBar />
-                    <Header />
 
                     {/* Home page */}
                     <Route path="/" exact render={() => <Home />} />
 
+                    {/* My events page */}
+                    <Route path="/events" exact render={() => <MyEvents />} />
+
                     {/* About page */}
-                    <Route path="/about" exact render={() => <div>About!</div>} />
+                    <Route path="/about" exact render={() => <About />} />
 
                     {/* TODO: ===================== if response with wrong params - redirect to 401 page */}
                     {/* Event details page, visible to organizer */}
@@ -48,6 +52,7 @@ class App extends Component {
                         <GreetingsMgmt eventId={match.params.eventId} userId={match.params.userId} />
                     )} />
 
+                    {/* <Header /> */}
                 </div>
             </Router>
         );

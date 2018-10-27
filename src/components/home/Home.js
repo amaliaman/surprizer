@@ -9,21 +9,27 @@ import UserEvents from './UserEvents';
   toggleModal: stores.store.toggleNewEventModal,
   isLoading: stores.store.isLoading,
   isSignedIn: stores.store.isSignedIn,
+  futureUserEvents: stores.store.futureUserEvents,
+  currentParties: stores.store.currentParties,
 }))
 @observer
 class Home extends Component {
   render() {
     return (
-      <div className='outer-wrapper'>
+      <div className='outer-wrapper home'>
         <div className='container'>
-          <div className='hero'>Surprize!</div>
-          <div className='description'><b>Surprizer</b> lets you organize virtual surprise parties.</div>
-
-          {this.props.isSignedIn && <button class='new-event-btn' type='button' onClick={this.props.toggleModal}>New Event</button>}
-          <NewEventModal />
+          <div className='hero'>
+            <div>
+              <div className='title'>Surprize!</div>
+              <div className='description'><b>Surprizer</b> lets you organize virtual surprise parties.</div>
+              {this.props.isSignedIn && <button className='btn' type='button' onClick={this.props.toggleModal}>New Event</button>}
+              <NewEventModal />
+            </div>
+          </div>
 
           <CustomLoader isLoading={this.props.isLoading}>
-            <UserEvents title='Upcoming Events' />
+            <UserEvents title='Current Parties' events={this.props.currentParties} type='current' />
+            <UserEvents title='Upcoming Events' events={this.props.futureUserEvents} type='future' />
           </CustomLoader>
         </div>
       </div>
