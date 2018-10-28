@@ -5,7 +5,6 @@ import moment from 'moment';
 import transportLayer from '../utils/TransportLayer';
 import ajaxUtils from '../utils/AjaxUtils';
 
-// const LS_EVENT_KEY = 'event';
 const LS_USER_KEY = 'user';
 
 class Store {

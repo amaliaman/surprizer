@@ -90,17 +90,18 @@ class ChatScreen extends Component {
 
     render() {
         const styles = {
-            container: {
-                height: '100vh',
-                display: 'flex',
-                flexDirection: 'column',
-            },
+            // container: {
+            //     height: '50vh',
+            //     display: 'flex',
+            //     flexDirection: 'column',
+            // },
             chatContainer: {
                 display: 'flex',
                 flex: 1,
             },
             whosOnlineListContainer: {
-                width: '300px',
+                width: '100px',
+                fontSize: '0.8rem',
                 flex: 'none',
                 padding: 20,
                 backgroundColor: '#2c303b',
@@ -115,7 +116,7 @@ class ChatScreen extends Component {
         }
 
         return (
-            <div style={styles.container}>
+            <div className='chat-screen-container' /* style={styles.container} */>
                 <div style={styles.chatContainer}>
                     <aside style={styles.whosOnlineListContainer}>
                         <WhosOnlineList

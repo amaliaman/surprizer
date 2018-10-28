@@ -51,6 +51,7 @@ button {
 @import './styles/forms.css';
 @import './styles/greetings.css';
 @import './styles/home.css';
+@import './styles/chat.css';
 /* Mobile */
 
 @media (max-width: 576px) {
