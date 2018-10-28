@@ -10,3 +10,5 @@ On the date of the event the guest of honor will receive a surprise link to the 
 * PostgreSQL + Sequelize
 * Chatkit
 * Node Cron
+
+[Link to App](https://surprizer.herokuapp.com/)
