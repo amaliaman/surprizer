@@ -7,7 +7,7 @@ On the date of the event the guest of honor will receive a surprise link to the 
 * React + MobX
 * Node.js
 * Express
-* ES6
+* JavaScript, ES6
 * PostgreSQL + Sequelize
 * Chatkit
 * Node Cron
