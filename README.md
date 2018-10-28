@@ -7,8 +7,11 @@ On the date of the event the guest of honor will receive a surprise link to the 
 * React + MobX
 * Node.js
 * Express
+* ES6
 * PostgreSQL + Sequelize
 * Chatkit
 * Node Cron
+* HTML5
+* CSS3
 
 [Link to App](https://surprizer.herokuapp.com/)
