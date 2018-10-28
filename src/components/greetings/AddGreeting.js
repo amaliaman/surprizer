@@ -9,7 +9,7 @@ class AddGreeting extends Component {
     render() {
         return (
             <div>
-                <button type='button' onClick={this.props.toggleModal}>Add Greeting</button>
+                <button type='button' className='btn' onClick={this.props.toggleModal}>Add Greeting</button>
                 <AddGreetingModal />
             </div>
         );
