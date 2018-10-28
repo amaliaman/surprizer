@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const moment = require('moment');
 const app = express();
 
+// Dev app
 if (app.get('env') === 'development') {
 	require('dotenv').load();
 	const cors = require('cors');
@@ -20,6 +21,11 @@ const chatApi = require('./server/routes/chatApi');
 // Body parser
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
+
+// Production app
+if (app.get('env') === 'production') {
+	app.use(express.static('build'));
+}
 
 // Routes
 app.use('/events', eventsApi);
