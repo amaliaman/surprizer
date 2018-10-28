@@ -204,6 +204,15 @@ class Store {
         this.redirectTo = '/';
     };
 
+    chatLogin = async body => {
+        try {
+            await transportLayer.chatLogin(body);
+        }
+        catch (error) {
+            throw error;
+        }
+    };
+
     getEventDetails = reaction(
         () => ({ ...this.queryParams }),
         params => {

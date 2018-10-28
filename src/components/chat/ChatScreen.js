@@ -42,7 +42,8 @@ class ChatScreen extends Component {
             instanceLocator: 'v1:us1:09d50864-3dac-4251-b92a-0b851b4da892',
             userId: this.props.currentUsername,
             tokenProvider: new Chatkit.TokenProvider({
-                url: 'http://localhost:5000/chat/authenticate',
+                url: '/chat/authenticate',
+                // url: 'http://localhost:5000/chat/authenticate',
             }),
         })
 
@@ -77,7 +78,6 @@ class ChatScreen extends Component {
                         onUserCameOnline: () => this.forceUpdate(),
                         onUserWentOffline: () => this.forceUpdate(),
                         onUserJoined: () => this.forceUpdate(),
-
                     },
                 })
 
@@ -89,46 +89,17 @@ class ChatScreen extends Component {
     }
 
     render() {
-        const styles = {
-            // container: {
-            //     height: '50vh',
-            //     display: 'flex',
-            //     flexDirection: 'column',
-            // },
-            chatContainer: {
-                display: 'flex',
-                flex: 1,
-            },
-            whosOnlineListContainer: {
-                width: '100px',
-                fontSize: '0.8rem',
-                flex: 'none',
-                padding: 20,
-                backgroundColor: '#2c303b',
-                color: 'white',
-            },
-            chatListContainer: {
-                padding: 20,
-                width: '85%',
-                display: 'flex',
-                flexDirection: 'column',
-            },
-        }
-
         return (
-            <div className='chat-screen-container' /* style={styles.container} */>
-                <div style={styles.chatContainer}>
-                    <aside style={styles.whosOnlineListContainer}>
+            <div className='chat-screen-container'>
+                <div className='chat-container'>
+                    <aside className='whos-online-list-container'>
                         <WhosOnlineList
                             currentUser={this.state.currentUser}
                             users={this.state.currentRoom.users}
                         />
                     </aside>
-                    <section style={styles.chatListContainer}>
-                        <MessageList
-                            messages={this.state.messages}
-                            style={styles.chatList}
-                        />
+                    <section className='chat-list-container'>
+                        <MessageList messages={this.state.messages} />
                         <TypingIndicator usersWhoAreTyping={this.state.usersWhoAreTyping} />
                         <SendMessageForm onSubmit={this.sendMessage} onChange={this.sendTypingEvent} />
                     </section>

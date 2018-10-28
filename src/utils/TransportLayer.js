@@ -27,12 +27,6 @@ class TransportLayer {
         return ajaxUtils.queryApi('post', url, event);
     }
 
-    // Create chat room
-    createChatRoom = eventId => {
-        const url = ajaxUtils.CHAT_ROOMS_PATH;
-        return ajaxUtils.queryApi('post', url, { eventId });
-    }
-
     // Update user
     updateUser = (userId, updateObject) => {
         const url = `${ajaxUtils.USERS_PATH}/${userId}`;
@@ -56,11 +50,24 @@ class TransportLayer {
         const url = ajaxUtils.GREETING_PATH;
         return ajaxUtils.queryApi('post', url, greetingObject);
     };
-    
+
     // Delete greeting
     deleteGreeting = greetingId => {
         const url = `${ajaxUtils.GREETING_PATH}/${greetingId}`;
         return ajaxUtils.queryApi('delete', url);
+    };
+
+    // ===== chat related
+
+    // Create chat room
+    createChatRoom = eventId => {
+        const url = ajaxUtils.CHAT_ROOMS_PATH;
+        return ajaxUtils.queryApi('post', url, { eventId });
+    }
+
+    chatLogin = body => {
+        const url = ajaxUtils.CHAT_USERS_PATH;
+        return ajaxUtils.queryApi('post', url, body);
     };
 }
 

@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import UsernameForm from './UsernameForm';
 import ChatScreen from './ChatScreen';
+import { inject, observer } from 'mobx-react';
 
+@inject(stores => ({
+    chatLogin: stores.store.chatLogin
+}))
+@observer
 class ChatContainer extends Component {
     constructor() {
         super()
@@ -9,17 +14,10 @@ class ChatContainer extends Component {
             currentUsername: '',
             currentScreen: 'WhatIsYourUsernameScreen',
         }
-        this.onUsernameSubmitted = this.onUsernameSubmitted.bind(this)
     }
 
-    onUsernameSubmitted(username) { // refactor to store//////////////////////////////////
-        fetch('http://localhost:5000/chat/users', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ username }),
-        })
+    onUsernameSubmitted = username => {
+        this.props.chatLogin({ username })
             .then(response => {
                 this.setState({
                     currentUsername: username,
@@ -30,13 +28,12 @@ class ChatContainer extends Component {
     }
 
     render() {  //refactor//////////////////////////////
-        // if (this.state.currentScreen === 'WhatIsYourUsernameScreen') {
-        //     return <UsernameForm onSubmit={this.onUsernameSubmitted} />
-        // }
-        // if (this.state.currentScreen === 'ChatScreen') {
-            // return <ChatScreen currentUsername={this.state.currentUsername} />
-            return <ChatScreen currentUsername='Ami' />
-        // }
+        if (this.state.currentScreen === 'WhatIsYourUsernameScreen') {
+            return <UsernameForm onSubmit={this.onUsernameSubmitted} />
+        }
+        if (this.state.currentScreen === 'ChatScreen') {
+            return <ChatScreen currentUsername={this.state.currentUsername} />
+        }
     }
 }
 

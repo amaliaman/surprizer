@@ -8,6 +8,7 @@ class AjaxUtils {
         this.USERS_PATH = '/users';
         this.CHAT_PATH = '/chat';
         this.CHAT_ROOMS_PATH = `${this.CHAT_PATH}/rooms`;
+        this.CHAT_USERS_PATH = `${this.CHAT_PATH}/users`;
     }
 
     // Return a promise
