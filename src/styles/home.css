@@ -9,13 +9,21 @@
     background-size: cover;
     height: 200px;
 }
+
 .about {
     background-image: url('../images/about-bg.jpg');
     background-size: cover;
     height: 200px;
 }
+
 .party {
     background-image: url('../images/party-bg.jpg');
+    background-size: cover;
+    height: 200px;
+}
+
+.gr {
+    background-image: url('../images/gr-bg.jpg');
     background-size: cover;
     height: 200px;
 }
@@ -35,6 +43,8 @@
 
 .hero .description {
     font-size: 0.9rem;
+    text-shadow: 1px 1px 1px #333333;
+
 }
 
 .btn {

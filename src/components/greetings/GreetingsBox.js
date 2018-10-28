@@ -17,7 +17,7 @@ class GreetingsBox extends Component {
     return (
       <div>
         <GreetingsTabs />
-        <Greetings />
+        <Greetings greetings={this.props.greetings} />
         <AddGreeting />
       </div>
     );

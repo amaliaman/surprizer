@@ -151,6 +151,11 @@ class EventModel {
         // TODO: return role
         return events;
     }
+
+    async isUserSurprisee(eventId, userId){
+        const role = await this.findUserRoleByEvent(eventId, userId);
+        return role.id === 3;
+    }
 }
 
 const eventModel = new EventModel();

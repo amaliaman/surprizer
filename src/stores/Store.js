@@ -51,6 +51,14 @@ class Store {
         this.getUserFromStorage();
     };
 
+    @computed get ownGreetings() {
+        if (this.currentGreetings.length) {
+            console.log(this.currentGreetings)
+            return this.currentGreetings.filter(g => g.user.id === this.currentUser.id);
+        }
+        return null;
+    }
+
     @action parseQueryParams = paramsObject => {
         Object.keys(paramsObject).forEach(k => {
             this.queryParams[k] = paramsObject[k];

@@ -1,7 +1,6 @@
 const eventModel = require('../models/EventModel');
 const greetingModel = require('../models/GreetingModel');
 const userModel = require('../models/UserModel');
-const cronModel = require('../models/CronModel');
 
 const initTables = async (populate) => {
     try {

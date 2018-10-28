@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize');
 const connection = require('../dataAccess/Connection');
+const Op = Sequelize.Op;
 
 const eventModel = require('./EventModel');
 const userModel = require('./UserModel');
@@ -12,7 +13,7 @@ class GreetingModel {
                 notNull: true
             },
             text: {
-                type: Sequelize.STRING,
+                type: Sequelize.TEXT,
                 notNull: true
             },
             filePath: {
@@ -45,8 +46,29 @@ class GreetingModel {
     }
 
     // Methods
-    async getGreetingsByEventTrimmed(eventId, userId) { // TODO: security trim by userId
-        const greetings = this.Greeting.findAll({ where: { eventId: eventId }, include: [userModel.User] });
+    async getGreetingsByEventTrimmed(eventIdArg, userIdArg) {
+        // Return all for surprisee, or just own if it's a guest/organizer
+        const greetings = this.Greeting.findAll({
+            where: {
+                [Op.and]: [
+                    { eventId: eventIdArg }, {
+                        [Op.or]: [
+                            { isPrivate: false }, {
+                                [Op.and]: [
+                                    { isPrivate: true }, {
+                                        [Op.or]: [
+                                            { userId: userIdArg },
+                                            eventModel.isUserSurprisee(eventIdArg, userIdArg)
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            include: [userModel.User]
+        });
         return greetings.map(g => g.get());
     };
 
@@ -55,14 +77,14 @@ class GreetingModel {
         const update = greeting.update(updateObject);
         return update;
     }
-    
-    async deleteGreeting (greetingId){
+
+    async deleteGreeting(greetingId) {
         const greeting = await this.Greeting.findById(greetingId);
         const del = greeting.destroy();
         return del;
     }
-    
-    async createGreeting (greetingObject){
+
+    async createGreeting(greetingObject) {
         const greeting = await this.Greeting.create(greetingObject);
         return greeting.get();
     }

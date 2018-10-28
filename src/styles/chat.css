@@ -1,5 +1,5 @@
 .chat-screen-container {
-    height: 60vh;
+    height: 300px;
     display: flex;
     flex-direction: column;
     border: 1px #2c303b solid;

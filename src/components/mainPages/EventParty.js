@@ -13,6 +13,7 @@ import ChatContainer from '../chat/ChatContainer';
     isLoading: stores.store.isLoading,
     createChatRoom: stores.store.createChatRoom,
     parseQueryParams: stores.store.parseQueryParams,
+    currentGreetings: stores.store.currentGreetings,
 }))
 @observer
 class EventParty extends Component {
@@ -43,7 +44,7 @@ class EventParty extends Component {
                         {event && event.chatRoomId && <ChatContainer />}
                         {this.props.user && <h2>{this.props.user.name}</h2>}
 
-                        <GreetingsBox />
+                        <GreetingsBox greetings={this.props.currentGreetings} />
                     </CustomLoader>
                 </div>
             </div>
