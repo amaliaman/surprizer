@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const bodyParser = require('body-parser');
 const moment = require('moment');
 const app = express();
@@ -22,16 +23,19 @@ const chatApi = require('./server/routes/chatApi');
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
-// Production app
-if (app.get('env') === 'production') {
-	app.use(express.static('build'));
-}
-
 // Routes
 app.use('/events', eventsApi);
 app.use('/users', usersApi);
 app.use('/greetings', greetingsApi);
 app.use('/chat', chatApi);
+
+// Production app
+if (app.get('env') === 'production') {
+	app.use(express.static(path.join(__dirname, 'build')));
+	app.get('/*', function (req, res) {
+		res.sendFile(path.join(__dirname, 'build', 'index.html'));
+	});
+}
 
 // Error handling
 app.use(function (req, res) {
