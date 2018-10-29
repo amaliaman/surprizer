@@ -74,6 +74,7 @@ class EventModel {
         }
 
         // Send invitation mails
+        const baseUrl = process.env.BASE_EMAIL_URL;
         // TODO: Move to external util
         if (userEmails.length) {
             const date = moment(event.date).format('L HH:mm ZZ');
@@ -91,7 +92,7 @@ class EventModel {
                                 <br />
                                 You're invited to <b>${event.title}</b> on ${date}.
                                 <br />
-                                You can upload greetings <a href="https://www.surprizer.app/events/${event.id}/${u.id}/greetings">here</a>.
+                                You can upload greetings <a href="${baseUrl}/events/${event.id}/${u.id}/greetings">here</a>.
                                 <br />
                                 See you there!
                             </p>`,
@@ -120,7 +121,7 @@ class EventModel {
                                 <br />
                                 You're invited to join <b>${event.title}</b> now.
                                 <br />
-                                <a href="https://www.surprizer.app/events/${event.id}/${u.id}/party">Party!!!</a>.
+                                <a href="${baseUrl}/events/${event.id}/${u.id}/party">Party!!!</a>.
                                 <br />
                                 See you there!
                             </p>`,

@@ -22,7 +22,7 @@ class EventDetails extends Component {
     getUsersByRole = roleId => {
         const userItems = this.props.users
             .filter(u => u.eventsUsers.roleId === roleId)
-            .map(u => <li key={u.id}>{u.name}</li>);
+            .map(u => <li key={u.id}>{u.name || u.email || u.phone}</li>);
         const list = <ul>{userItems}</ul>;
         return list;
     };
@@ -47,6 +47,8 @@ class EventDetails extends Component {
                                 <div className='event-datails'>
                                     <span>Date:</span>
                                     <span>{moment(event.date).format('L HH:mm')}</span>
+                                    <span>Organizers:</span>
+                                    <div>{this.getUsersByRole(1)}</div>
                                     <span>Surprizees:</span>
                                     <div>{this.getUsersByRole(3)}</div>
                                     <span>Guests:</span>

@@ -23,6 +23,10 @@ class EventParty extends Component {
         const { userId, eventId, parseQueryParams, setGreetingView } = this.props;
         parseQueryParams({ eventId, userId });
         setGreetingView('all');
+
+        if (this.props.event && !this.props.event.chatRoomId) {
+            this.props.createChatRoom();
+        }
     };
 
     render() {
@@ -37,11 +41,6 @@ class EventParty extends Component {
 
                         </div></div>
                     <CustomLoader isLoading={this.props.isLoading}>
-                        {/* replace with automatic creation of room */}
-                        {event && !event.chatRoomId && <div>
-                            <button type='button' onClick={this.props.createChatRoom}>Create chat</button>
-                            <small>will be auto created</small></div>}
-
                         {event && <h3>Welcome to {event.title}</h3>}
                         {event && event.chatRoomId && <ChatContainer />}
                         {this.props.user && <h2>{this.props.user.name}</h2>}
