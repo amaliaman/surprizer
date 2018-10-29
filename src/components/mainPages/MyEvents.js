@@ -19,9 +19,11 @@ class MyEvents extends Component {
                             <div className='description'>Here you can view all your events, past present & future.</div>
                         </div>
                     </div>
-                    <CustomLoader isLoading={this.props.isLoading}>
-                        <UserEvents title='My Events' events={this.props.userEvents} type='all' />
-                    </CustomLoader>
+                    <div className='main-body'>
+                        <CustomLoader isLoading={this.props.isLoading}>
+                            <UserEvents title='My Events' events={this.props.userEvents} type='all' />
+                        </CustomLoader>
+                    </div>
                 </div></div>
         );
     }

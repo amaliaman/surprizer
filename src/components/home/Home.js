@@ -27,10 +27,21 @@ class Home extends Component {
             </div>
           </div>
 
-          <CustomLoader isLoading={this.props.isLoading}>
-            <UserEvents title='Current Parties' events={this.props.currentParties} type='current' />
-            <UserEvents title='Upcoming Events' events={this.props.futureUserEvents} type='future' />
-          </CustomLoader>
+          <div className='main-body'>
+            {this.props.isSignedIn ? (
+              <CustomLoader isLoading={this.props.isLoading}>
+                <UserEvents title='Current Parties' events={this.props.currentParties} type='current' />
+                <UserEvents title='Upcoming Events' events={this.props.futureUserEvents} type='future' />
+              </CustomLoader>
+            ) : (
+                <div>Please sign in.
+                  <br />
+                  <br />
+                  Don't have an account?<br />
+                  <button className='btn' onClick={() => alert('soon')}>Sign Up</button>
+                </div>
+              )}
+          </div>
         </div>
       </div>
     );

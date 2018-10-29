@@ -38,15 +38,15 @@ class EventParty extends Component {
                         <div>
                             <div className='title'>Party on!</div>
                             <div className='description'>This is the real party! Chat with people and mingle.</div>
-
                         </div></div>
-                    <CustomLoader isLoading={this.props.isLoading}>
-                        {event && <h3>Welcome to {event.title}</h3>}
-                        {event && event.chatRoomId && <ChatContainer />}
-                        {this.props.user && <h2>{this.props.user.name}</h2>}
-
-                        <GreetingsBox greetings={this.props.currentGreetings} />
-                    </CustomLoader>
+                    <div className='main-body'>
+                        <CustomLoader isLoading={this.props.isLoading}>
+                            {event && <h3>Welcome to {event.title}</h3>}
+                            {event && event.chatRoomId && <ChatContainer />}
+                            {this.props.user && <h2>{this.props.user.name}</h2>}
+                            <GreetingsBox greetings={this.props.currentGreetings} />
+                        </CustomLoader>
+                    </div>
                 </div>
             </div>
         );

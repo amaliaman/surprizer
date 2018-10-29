@@ -30,8 +30,10 @@ class GreetingsMgmt extends Component {
 
                         </div>
                     </div>
-                    <h3>Greetings for {this.props.eventTitle}</h3>
-                    <GreetingsBox greetings={this.props.ownGreetings} />
+                    <div className='main-body'>
+                        <h3>Greetings for {this.props.eventTitle}</h3>
+                        <GreetingsBox greetings={this.props.ownGreetings} />
+                    </div>
                 </div>
             </div>
         );

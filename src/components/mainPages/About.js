@@ -13,19 +13,20 @@ class About extends Component {
                         </div>
                     </div>
 
-                    <h3>About Me</h3>
-                    <div>I'm me</div>
-
-                    <h3>Photo Credits</h3>
-                    <h4><a href='https://unsplash.com' target='_blank' rel="noopener noreferrer">unsplash.com</a></h4>
-                    <ul>
-                        <li>Ambreen Hasan</li>
-                        <li>Jason Leung</li>
-                        <li>Pablo Heimplatz</li>
-                        <li>Adi Goldstein</li>
-                        <li>Monique Carrati</li>
-                        <li>rawpixel</li>
-                    </ul>
+                    <div className='main-body'>
+                        <h3>About Me</h3>
+                        <div>I'm me</div>
+                        <h3>Photo Credits</h3>
+                        <h4><a href='https://unsplash.com' target='_blank' rel="noopener noreferrer">unsplash.com</a></h4>
+                        <ul>
+                            <li>Ambreen Hasan</li>
+                            <li>Jason Leung</li>
+                            <li>Pablo Heimplatz</li>
+                            <li>Adi Goldstein</li>
+                            <li>Monique Carrati</li>
+                            <li>rawpixel</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         );

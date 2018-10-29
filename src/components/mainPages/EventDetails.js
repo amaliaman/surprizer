@@ -39,26 +39,26 @@ class EventDetails extends Component {
                             <div className='description'>Some details about the event you're organizing.</div>
                         </div>
                     </div>
-
-                    <CustomLoader isLoading={this.props.isLoading}>
-                        {event && (
-                            <div>
-                                <h3>{event.title}</h3>
-                                <div className='event-datails'>
-                                    <span>Date:</span>
-                                    <span>{moment(event.date).format('L HH:mm')}</span>
-                                    <span>Organizers:</span>
-                                    <div>{this.getUsersByRole(1)}</div>
-                                    <span>Surprizees:</span>
-                                    <div>{this.getUsersByRole(3)}</div>
-                                    <span>Guests:</span>
-                                    <div>{this.getUsersByRole(2)}</div>
+                    <div className='main-body'>
+                        <CustomLoader isLoading={this.props.isLoading}>
+                            {event && (
+                                <div>
+                                    <h3>{event.title}</h3>
+                                    <div className='event-datails'>
+                                        <span>Date:</span>
+                                        <span>{moment(event.date).format('L HH:mm')}</span>
+                                        <span>Organizers:</span>
+                                        <div>{this.getUsersByRole(1)}</div>
+                                        <span>Surprizees:</span>
+                                        <div>{this.getUsersByRole(3)}</div>
+                                        <span>Guests:</span>
+                                        <div>{this.getUsersByRole(2)}</div>
+                                    </div>
+                                    <button type='button' className='btn' onClick={() => alert('soon')}>Edit</button>
                                 </div>
-                                <button type='button' className='btn' onClick={() => alert('soon')}>Edit</button>
-                            </div>
-                        )}
-                    </CustomLoader>
-                </div></div>
+                            )}
+                        </CustomLoader>
+                    </div></div></div>
         );
     }
 }

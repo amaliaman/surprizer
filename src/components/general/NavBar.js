@@ -15,7 +15,7 @@ class NavBar extends Component {
 
     render() {
         return (
-            <div className='outer-wrapper'>
+            <div className='outer-wrapper nav-wrapper'>
                 <div className='container nav-container'>
                     {this.links.map((l, i) => <NavLink key={i} to={l.to} activeClassName='active-link' exact>{l.title}</NavLink>)}
                     <LoginControl />
