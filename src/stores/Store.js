@@ -43,9 +43,8 @@ class Store {
                 }
                 return Promise.reject(error);
             });
-
         this.initialize();
-    }
+    };
 
     @action initialize = async () => {
         this.getUserFromStorage();
@@ -56,7 +55,7 @@ class Store {
             return this.currentGreetings.filter(g => g.userId === this.currentUser.id);
         }
         return null;
-    }
+    };
 
     @action parseQueryParams = paramsObject => {
         Object.keys(paramsObject).forEach(k => {
