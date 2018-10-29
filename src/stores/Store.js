@@ -53,8 +53,7 @@ class Store {
 
     @computed get ownGreetings() {
         if (this.currentGreetings.length) {
-            console.log(this.currentGreetings)
-            return this.currentGreetings.filter(g => g.user.id === this.currentUser.id);
+            return this.currentGreetings.filter(g => g.userId === this.currentUser.id);
         }
         return null;
     }
