@@ -152,9 +152,14 @@ class EventModel {
         return events;
     }
 
-    async isUserSurprisee(eventId, userId){
+    async isUserSurprisee(eventId, userId) {
         const role = await this.findUserRoleByEvent(eventId, userId);
         return role.id === 3;
+    }
+
+    async finsUsersByEvent(eventId) {
+        const event = await this.Event.findById(eventId);
+        return event.getUsers();
     }
 }
 

@@ -5,7 +5,7 @@ const eventModel = require('../models/EventModel');
 const greetingModel = require('../models/GreetingModel');
 
 // Get event details (per user permissions)
-router.get('/:eventId/:userId', async (req, res) => { 
+router.get('/:eventId/:userId', async (req, res) => {
     try {
         // TODO: handle fake eventId & userId
         // security trimmed
@@ -13,7 +13,8 @@ router.get('/:eventId/:userId', async (req, res) => {
         const event = await eventModel.findEventById(eventId);
         const role = await eventModel.findUserRoleByEvent(eventId, userId);
         const greetings = await greetingModel.getGreetingsByEventTrimmed(eventId, userId);
-        res.json({ event, role, greetings });
+        const users = await eventModel.finsUsersByEvent(eventId);
+        res.json({ event, role, greetings, users });
     }
     catch (err) { throw err; }
 });

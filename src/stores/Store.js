@@ -11,6 +11,7 @@ class Store {
     @observable currentEvent = null;
     @observable currentUser = null;
     @observable currentRole = null;
+    @observable currentUsers = [];
     @observable currentGreetings = [];
     @observable userEvents = [];
     @observable greetingTypes = [];
@@ -29,6 +30,7 @@ class Store {
     @observable isAddGreetingModal = false;
     @observable isLoading = false;
     @observable redirectTo = null;
+    @observable greetingView = null;
 
     constructor() {
         // Handle ajax errors
@@ -86,6 +88,7 @@ class Store {
             this.currentEvent = data.event;
             this.currentRole = data.role;
             this.currentGreetings = data.greetings;
+            this.currentUsers = data.users;
             this.getUser(userId);
             this.isLoading = false;
         }
@@ -98,20 +101,24 @@ class Store {
     }
 
     @computed get greetingTabsTitles() {
-        return this.greetingTypes
-            .map(t =>
-                ({
-                    id: t.id,
-                    title: t.type,
-                    count: this.currentGreetings
-                        .filter(g => g.typeId === t.id)
-                        .length
-                }))
-    }
+        if (this.currentGreetings.length) {
+            const greetings = this.greetingView === 'all' ? this.currentGreetings : this.ownGreetings;
+            return this.greetingTypes
+                .map(t =>
+                    ({
+                        id: t.id,
+                        title: t.type,
+                        count: greetings
+                            .filter(g => g.typeId === t.id)
+                            .length
+                    }))
+        }
+        return [];
+    };
 
     @computed get futureUserEvents() {
         return this.userEvents.filter(e => new Date(e.date) > new Date());
-    }
+    };
 
     @computed get currentParties() {
         return this.userEvents
@@ -121,7 +128,7 @@ class Store {
                 const end = moment(e.date).add(4, 'h');
                 return now.isBetween(eventDate, end);
             });
-    }
+    };
 
     @action setGreetingType = typeId => {
         this.currentGreetingType = typeId;
@@ -181,7 +188,6 @@ class Store {
             this.toggleAddGreetingModal();
             this.isLoading = false;
             this.currentGreetings.push(greeting);
-            console.log(this.currentGreetings)
         }
         catch (err) { throw err; }
     };
@@ -259,6 +265,10 @@ class Store {
 
     @action resetRedirectTo = () => {
         this.redirectTo = null;
+    };
+
+    @action setGreetingView = view => {
+        this.greetingView = view;
     };
 
     // Chat related

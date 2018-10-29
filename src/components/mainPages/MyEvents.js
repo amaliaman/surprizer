@@ -11,7 +11,7 @@ import { inject, observer } from 'mobx-react';
 class MyEvents extends Component {
     render() {
         return (
-            <div className='outer-wrapper events'>
+            <div className='outer-wrapper events banner'>
                 <div className='container'>
                     <div className='hero'>
                         <div>

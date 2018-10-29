@@ -1,31 +1,30 @@
-.home {
-    background-image: url('../images/main_bg-min.jpg');
+.banner {
     background-size: cover;
     height: 200px;
+}
+
+.home {
+    background-image: url('../images/main_bg-min.jpg');
 }
 
 .events {
     background-image: url('../images/events-bg.jpg');
-    background-size: cover;
-    height: 200px;
 }
 
 .about {
     background-image: url('../images/about-bg.jpg');
-    background-size: cover;
-    height: 200px;
 }
 
 .party {
     background-image: url('../images/party-bg.jpg');
-    background-size: cover;
-    height: 200px;
 }
 
-.gr {
+.greeting {
     background-image: url('../images/gr-bg.jpg');
-    background-size: cover;
-    height: 200px;
+}
+
+.details {
+    background-image: url('../images/details-bg.jpg');
 }
 
 .hero {
@@ -44,7 +43,6 @@
 .hero .description {
     font-size: 0.9rem;
     text-shadow: 1px 1px 1px #333333;
-
 }
 
 .btn {
@@ -76,4 +74,16 @@ h3 {
     display: grid;
     grid-gap: 15px;
     grid-template-columns: 200px 150px repeat(3, minmax(min-content, max-content));
+}
+
+.event-datails {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    grid-gap: 10px;
+}
+
+.event-datails ul {
+    padding: 0;
+    padding-left: 20px;
+    margin: 0;
 }

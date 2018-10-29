@@ -7,6 +7,8 @@
 .nav-container {
     display: flex;
     color: var(--text-color);
+    align-content: center;
+    align-items: center;
 }
 
 .login-btn {
@@ -15,13 +17,17 @@
 
 .nav-container a,
 .nav-container span {
-    padding: 15px 15px 15px 0;
+    padding: 10px 15px 10px 0;
     text-decoration: none;
 }
 
 .nav-container a:hover,
 .nav-container span:hover {
     font-weight: bold;
+}
+
+.nav-container a:first-child {
+    font-size: 2rem;
 }
 
 .nav-container span {

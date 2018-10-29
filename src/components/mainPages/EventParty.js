@@ -14,19 +14,21 @@ import ChatContainer from '../chat/ChatContainer';
     createChatRoom: stores.store.createChatRoom,
     parseQueryParams: stores.store.parseQueryParams,
     currentGreetings: stores.store.currentGreetings,
+    setGreetingView: stores.store.setGreetingView,
 }))
 @observer
 class EventParty extends Component {
 
     @action componentDidMount = () => {
-        const { userId, eventId, parseQueryParams } = this.props;
+        const { userId, eventId, parseQueryParams, setGreetingView } = this.props;
         parseQueryParams({ eventId, userId });
+        setGreetingView('all');
     };
 
     render() {
         const { event } = this.props;
         return (
-            <div className='outer-wrapper party'>
+            <div className='outer-wrapper party banner'>
                 <div className='container'>
                     <div className='hero'>
                         <div>

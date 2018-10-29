@@ -6,6 +6,7 @@ class NavBar extends Component {
     constructor() {
         super();
         this.links = [
+            { title: '🎉', to: '/' },
             { title: 'Surprizer', to: '/' },
             { title: 'My Events', to: '/events' },
             { title: 'About', to: '/about' }

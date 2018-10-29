@@ -16,7 +16,7 @@ import UserEvents from './UserEvents';
 class Home extends Component {
   render() {
     return (
-      <div className='outer-wrapper home'>
+      <div className='outer-wrapper home banner'>
         <div className='container'>
           <div className='hero'>
             <div>

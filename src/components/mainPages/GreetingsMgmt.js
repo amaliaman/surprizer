@@ -8,18 +8,20 @@ import GreetingsBox from '../greetings/GreetingsBox';
     parseQueryParams: stores.store.parseQueryParams,
     eventTitle: stores.store.currentEvent ? stores.store.currentEvent.title : null,
     roleTItle: stores.store.currentRole ? stores.store.currentRole.title : null,
-    ownGreetings: stores.store.ownGreetings
+    ownGreetings: stores.store.ownGreetings,
+    setGreetingView: stores.store.setGreetingView,
 }))
 @observer
 class GreetingsMgmt extends Component {
     @action componentDidMount = () => {
-        const { userId, eventId, parseQueryParams } = this.props;
+        const { userId, eventId, parseQueryParams, setGreetingView } = this.props;
         parseQueryParams({ eventId, userId });
+        setGreetingView('own');
     };
 
     render() {
         return (
-            <div className='outer-wrapper gr'>
+            <div className='outer-wrapper greeting banner'>
                 <div className='container'>
                     <div className='hero'>
                         <div>

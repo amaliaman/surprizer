@@ -54,7 +54,7 @@ class Greeting extends Component {
         toolbar: [
             [{ 'font': [] }],
             ['bold', 'italic', 'underline', 'strike'],
-            ['blockquote', 'code-block'],
+            ['blockquote'],
             [{ 'list': 'ordered' }, { 'list': 'bullet' }],
             [{ 'direction': 'rtl' }],
             [{ 'color': [] }, { 'background': [] }],
