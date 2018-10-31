@@ -2,7 +2,7 @@
     position: absolute;
     width: 100%;
     bottom: 0;
-    top: 70px;
+    top: 60px;
     background-size: cover;
     min-height: max-content;
 }
@@ -11,6 +11,7 @@
     background-color: rgba(255, 255, 255, 0.7);
     padding: 10px;
     border-radius: 10px;
+    margin-bottom: 10px;
 }
 
 .home {
