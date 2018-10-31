@@ -22,14 +22,13 @@
 }
 
 input,
-.form select{
+.form select {
     padding: 5px;
 }
 
-
 /* Mobile */
 
-@media (max-width: 576px) {
+@media (max-width: 768px) {
     .new-event-form {
         grid-template-columns: 1fr;
     }
@@ -38,7 +37,3 @@ input,
         grid-template-columns: 1fr;
     }
 }
-
-/* Large devices (desktops, 992px and up) */
-
-@media (min-width: 992px) {}

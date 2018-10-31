@@ -8,12 +8,15 @@
     --secondary-dark: #b28900;
     --secondary: #ffc400;
     --secondary-light: #ffcf33;
+    --nav-color: #017687;
+    --nav-bg-color: #01768780;
     /* dimensions */
     --min-container-width: 95%;
     --mid-container-width: 75%;
-    --max-container-width: 75%;
+    /* --max-container-width: 75%; */
     /* fonts */
     --body-font: 'Open Sans', sans-serif;
+    --text-shadow: 1px 1px 1px #333333;
 }
 
 @font-face {
@@ -26,9 +29,11 @@
     src: local('OpenSans'), url('./fonts/Open_Sans/OpenSans-Bold.ttf') format('truetype');
     font-weight: bold;
 }
+
 html {
     height: 100%
 }
+
 body,
 html {
     margin: 0;
@@ -57,16 +62,8 @@ button {
 @import './styles/chat.css';
 /* Mobile */
 
-@media (max-width: 576px) {
+@media (max-width: 768px) {
     .container {
         width: var(--min-container-width);
-    }
-}
-
-/* Large devices (desktops, 992px and up) */
-
-@media (min-width: 992px) {
-    .container {
-        width: var(--max-container-width);
     }
 }

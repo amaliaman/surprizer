@@ -56,7 +56,7 @@
 
 /* Mobile */
 
-@media (max-width: 576px) {
+@media (max-width: 768px) {
     .greeting-wrapper {
         grid-template-columns: 1fr;
     }

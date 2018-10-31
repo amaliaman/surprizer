@@ -22,12 +22,12 @@ class Home extends Component {
             <div>
               <div className='title'>Surprize!</div>
               <div className='description'><b>Surprizer</b> lets you organize virtual surprise parties.</div>
-              {this.props.isSignedIn && <button className='btn' type='button' onClick={this.props.toggleModal}>New Event</button>}
-              <NewEventModal />
             </div>
           </div>
 
           <div className='main-body'>
+            {this.props.isSignedIn && <button className='btn' type='button' onClick={this.props.toggleModal}>New Event</button>}
+            <NewEventModal />
             {this.props.isSignedIn ? (
               <CustomLoader isLoading={this.props.isLoading}>
                 <UserEvents title='Current Parties' events={this.props.currentParties} type='current' />
