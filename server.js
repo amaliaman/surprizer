@@ -11,6 +11,15 @@ if (app.get('env') === 'development') {
 	app.use(cors());
 }
 
+// Redirect from Heroku to live domain
+app.use((req, res, next) => {
+	const host = req.get('Host');
+	if (host === process.env.REDIRECT_FROM) {
+		res.redirect(301, process.env.REDIRECT_TO + req.originalUrl);
+	}
+	return next();
+});
+
 const SERVER_PORT = process.env.PORT || 5000;
 
 // APIs

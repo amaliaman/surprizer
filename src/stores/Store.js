@@ -37,12 +37,12 @@ class Store {
         axios.interceptors.response.use(
             response => response,
             error => {
-                if (error.response.status === 401) {
-                    this.isAuthenticated = false;
-                }
-                else {
+                // if (error.response.status === 401) {
+                //     this.isAuthenticated = false;
+                // }
+                // else {
                     console.error(error.response);
-                }
+                // }
                 return Promise.reject(error);
             });
         this.initialize();

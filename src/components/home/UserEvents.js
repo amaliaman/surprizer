@@ -13,7 +13,7 @@ class UserEvents extends Component {
         return events.map(e => {
             return (<div key={e.id}>
                 <span>{e.title}</span>
-                <span>{moment(e.date).format('L HH:mm')}</span>
+                <span className='date'>{moment(e.date).format('L HH:mm')}</span>
                 <span><Link to={`/events/${e.id}/${userId}`}>details</Link></span>
                 <span><Link to={`/events/${e.id}/${userId}/greetings`}>greetings</Link></span>
                 {type === 'current' && <span><Link to={`/events/${e.id}/${userId}/party`}>party!</Link></span>}

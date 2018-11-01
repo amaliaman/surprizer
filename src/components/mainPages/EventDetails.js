@@ -44,7 +44,7 @@ class EventDetails extends Component {
                             {event && (
                                 <div>
                                     <h3>{event.title}</h3>
-                                    <div className='event-datails'>
+                                    <div className='event-details'>
                                         <span>Date:</span>
                                         <span>{moment(event.date).format('L HH:mm')}</span>
                                         <span>Organizers:</span>
