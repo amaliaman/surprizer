@@ -8,8 +8,8 @@ self.__precacheManifest = [
     "url": "/static/css/main.9ea33337.chunk.css"
   },
   {
-    "revision": "af20367001b6bd5cdded77af9c36fb8b",
-    "url": "/static/media/details-bg.af203670.jpg"
+    "revision": "c31c6e18c05f23169024d27fb279de5f",
+    "url": "/static/media/party-bg.c31c6e18.jpg"
   },
   {
     "revision": "19ef7e812a3405480517",
@@ -44,8 +44,8 @@ self.__precacheManifest = [
     "url": "/static/media/gr-bg.d934c050.jpg"
   },
   {
-    "revision": "c31c6e18c05f23169024d27fb279de5f",
-    "url": "/static/media/party-bg.c31c6e18.jpg"
+    "revision": "af20367001b6bd5cdded77af9c36fb8b",
+    "url": "/static/media/details-bg.af203670.jpg"
   },
   {
     "revision": "19ef7e812a3405480517",

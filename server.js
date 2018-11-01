@@ -11,16 +11,14 @@ if (app.get('env') === 'development') {
 	app.use(cors());
 }
 
-// Redirect from Heroku to live domain
-app.use((req, res, next) => {
-	const host = req.get('Host');
-	// if (true) {
-	if (host === process.env.REDIRECT_FROM) {
-		console.log(process.env.REDIRECT_TO)
-		return res.redirect(301, process.env.REDIRECT_TO);
-	}
-	return next();
-});
+// // Redirect from Heroku to live domain
+// app.use((req, res, next) => {
+// 	const host = req.get('Host');
+// 	if (host === process.env.REDIRECT_FROM) {
+// 		return res.redirect(301, process.env.REDIRECT_TO);
+// 	}
+// 	return next();
+// });
 
 const SERVER_PORT = process.env.PORT || 5000;
 
