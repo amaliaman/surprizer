@@ -28,7 +28,7 @@ class App extends Component {
                     <NavBar />
 
                     {/* Home page */}
-                    <Route path="/" exact render={() => <Home />} />
+                    <Route path="/" render={() => <Home />} />
 
                     {/* My events page */}
                     <Route path="/events" exact render={() => <MyEvents />} />
