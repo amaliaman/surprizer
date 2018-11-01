@@ -1,16 +1,16 @@
 {
-  "main.css": "/static/css/main.9ea33337.chunk.css",
-  "main.js": "/static/js/main.51151f11.chunk.js",
-  "main.js.map": "/static/js/main.51151f11.chunk.js.map",
+  "main.css": "/static/css/main.4c0fd25a.chunk.css",
+  "main.js": "/static/js/main.2e581354.chunk.js",
+  "main.js.map": "/static/js/main.2e581354.chunk.js.map",
   "static/css/1.a315807e.chunk.css": "/static/css/1.a315807e.chunk.css",
   "static/js/1.19ef7e81.chunk.js": "/static/js/1.19ef7e81.chunk.js",
   "static/js/1.19ef7e81.chunk.js.map": "/static/js/1.19ef7e81.chunk.js.map",
   "runtime~main.js": "/static/js/runtime~main.229c360f.js",
   "runtime~main.js.map": "/static/js/runtime~main.229c360f.js.map",
-  "static/media/App.css": "/static/media/OpenSans-Regular.d7d5d458.ttf",
+  "static/media/App.css": "/static/media/OpenSans-Bold.f5331cb6.ttf",
   "static/css/1.a315807e.chunk.css.map": "/static/css/1.a315807e.chunk.css.map",
-  "static/css/main.9ea33337.chunk.css.map": "/static/css/main.9ea33337.chunk.css.map",
+  "static/css/main.4c0fd25a.chunk.css.map": "/static/css/main.4c0fd25a.chunk.css.map",
   "index.html": "/index.html",
-  "precache-manifest.05dfc2239a53365a58353161c13fdeb6.js": "/precache-manifest.05dfc2239a53365a58353161c13fdeb6.js",
+  "precache-manifest.dfdf8beec820d2c9f2f21f0c9d513a06.js": "/precache-manifest.dfdf8beec820d2c9f2f21f0c9d513a06.js",
   "service-worker.js": "/service-worker.js"
 }
