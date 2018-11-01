@@ -23,7 +23,6 @@ class EventParty extends Component {
         const { userId, eventId, parseQueryParams, setGreetingView } = this.props;
         parseQueryParams({ eventId, userId });
         setGreetingView('all');
-
         if (this.props.event && !this.props.event.chatRoomId) {
             this.props.createChatRoom();
         }

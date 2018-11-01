@@ -3,7 +3,6 @@ import { observer, inject } from 'mobx-react';
 import Greeting from './Greeting';
 
 @inject(stores => ({
-    // greetings: stores.store.currentGreetings,
     type: stores.store.currentGreetingType,
 }))
 @observer

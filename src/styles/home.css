@@ -94,8 +94,8 @@ h3 {
 }
 
 .event-details ul {
+    list-style: none;
     padding: 0;
-    padding-left: 20px;
     margin: 0;
 }
 
