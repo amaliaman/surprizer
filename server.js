@@ -4,6 +4,8 @@ const bodyParser = require('body-parser');
 const moment = require('moment');
 const app = express();
 
+const SERVER_PORT = process.env.PORT || 5000;
+
 // Dev app
 if (app.get('env') === 'development') {
 	require('dotenv').load();
@@ -20,8 +22,6 @@ app.use((req, res, next) => {
 	next();
 });
 
-const SERVER_PORT = process.env.PORT || 5000;
-
 // APIs
 const eventsApi = require('./server/routes/eventsApi');
 const usersApi = require('./server/routes/usersApi');
@@ -29,8 +29,8 @@ const greetingsApi = require('./server/routes/greetingsApi');
 const chatApi = require('./server/routes/chatApi');
 
 // Body parser
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // Routes
 app.use('/events', eventsApi);

@@ -34,6 +34,7 @@ class SendMessageForm extends Component {
                             onChange={this.onChange}
                             value={this.state.text}
                         />
+                        <button typ='button' className='btn' onClick={this.onSubmit}>Send</button>
                     </form>
                 </div>
             </div>

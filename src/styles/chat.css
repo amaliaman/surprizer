@@ -20,7 +20,7 @@
 
 .chat-list-container {
     background-color: white;
-    width: 85%;
+    width: 100%;
     display: flex;
     flex-direction: column;
 }
@@ -85,4 +85,10 @@
     border-radius: 50%;
     width: 11px;
     height: 11px;
+}
+
+@media (max-width: 768px) {
+    .whos-online-list-container {
+        display: none;
+    }
 }
