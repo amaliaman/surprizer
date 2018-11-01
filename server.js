@@ -14,8 +14,10 @@ if (app.get('env') === 'development') {
 // Redirect from Heroku to live domain
 app.use((req, res, next) => {
 	const host = req.get('Host');
+	// if (true) {
 	if (host === process.env.REDIRECT_FROM) {
-		res.redirect(301, process.env.REDIRECT_TO);
+		console.log(process.env.REDIRECT_TO)
+		return res.redirect(301, process.env.REDIRECT_TO);
 	}
 	return next();
 });
