@@ -15,7 +15,7 @@ if (app.get('env') === 'development') {
 app.use((req, res, next) => {
 	const host = req.get('Host');
 	if (host === process.env.REDIRECT_FROM) {
-		res.redirect(301, process.env.REDIRECT_TO + req.originalUrl);
+		res.redirect(301, process.env.REDIRECT_TO);
 	}
 	return next();
 });
