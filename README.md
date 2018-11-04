@@ -1,5 +1,6 @@
 # Surprizer
 > A project in progress
+
 [www.surprizer.app](https://www.surprizer.app/)
 ## Create virtual surprise parties 🎉
 Create virtual surprise parties! Open a new event, invite guests and let them upload greetings.
